@@ -6,10 +6,8 @@ package frc.robot;
 
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.Autos;
-import frc.robot.commands.SetToAngle;
-import frc.robot.commands.SetToX;
 import frc.robot.commands.SwerveDriveJoystick;
-import frc.robot.commands.ZeroHeading;
+import frc.robot.commands.resetEverything;
 import frc.robot.subsystems.SwerveSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -30,8 +28,6 @@ public class RobotContainer {
 
 
   //THe robot's commands are defined here...
-  private final ZeroHeading zeroHeading = new ZeroHeading(swerveSubsystem);
-  private final SetToX setToX = new SetToX(swerveSubsystem);
 
 
   //All our controller stuff!
@@ -73,9 +69,7 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    m_driverController.a().onTrue(zeroHeading); 
-    m_driverController.x().onTrue(setToX);
-    m_driverController.b().onTrue((new SetToAngle(swerveSubsystem, 0)).withTimeout(0.5));
+    m_driverController.b().onTrue((new resetEverything(swerveSubsystem).withTimeout(0.5)));
   }
     
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
