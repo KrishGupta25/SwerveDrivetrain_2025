@@ -31,13 +31,13 @@ public class resetEverything extends Command {
     swerve.frontRight.setToAngle(0);
     swerve.backLeft.setToAngle(0);
     swerve.backRight.setToAngle(0);
-
+/*
     swerve.frontLeft.setDrivePosition(0);
     swerve.frontRight.setDrivePosition(0);
     swerve.backLeft.setDrivePosition(0);
     swerve.backRight.setDrivePosition(0);
-
-    swerve.resetOdemetry(new Pose2d(0, 0, swerve.gyro.getRotation2d()));
+*/
+    swerve.resetOdometry(new Pose2d(0,0,swerve.gyro.getRotation2d()));
   }
   
   // Called once the command ends or is interrupted.
